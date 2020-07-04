@@ -1,5 +1,0 @@
-exclude_copy.txt
-/build/
-/Templates/
-.prettierignore
-.eslintignore

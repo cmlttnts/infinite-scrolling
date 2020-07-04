@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+// ANCHOR TAG
+$pri_link_col: rgb(24, 24, 231);
+$pri_link_col_active: rgb(226, 223, 223);
+$pri_link_col_visited: rgb(175, 37, 175);
+
+a {
+  font-size: 1.2rem;
+  color: $pri_link_col;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:link {
+  color: $pri_link_col;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  background-color: $pri_link_col_active;
+}
+a:visited {
+  color: $pri_link_col_visited;
+}
+
+// BUTTON
+
+$def_btn_bgc: rgb(47, 108, 165);
+$def_btn_bgc_hover: rgb(85, 196, 240);
+$def_btn_shdw: 3px 3px 1px rgb(150, 148, 148);
+$def_btn_shdw_active: 1px 1px 1px black;
+$def_btn_pad: 4px;
+$def_btn_rad: 4px;
+
+button {
+  background-color: $def_btn_bgc;
+  font-size: inherit;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  padding: $def_btn_pad;
+  border-radius: $def_btn_rad;
+  box-shadow: $def_btn_shdw;
+}
+button:hover {
+  background-color: $def_btn_bgc_hover;
+}
+
+button:active {
+  box-shadow: $def_btn_shdw_active;
+  transform: translateY(1px);
+}
+
+.App {
+  position: relative;
+  padding-bottom: 4rem;
+}
