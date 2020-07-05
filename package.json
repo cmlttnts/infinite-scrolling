@@ -1,5 +1,5 @@
 {
-  "name": "shopping-scrolling",
+  "name": "infinite-scrolling",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

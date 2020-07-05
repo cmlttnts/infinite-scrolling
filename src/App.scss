@@ -1,0 +1,47 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  justify-items: center;
+  align-items: center;
+
+  padding-top: 2rem;
+  p {
+    grid-column: 1 / -1;
+    justify-self: right;
+    margin-right: 1rem;
+  }
+  .SearchBox {
+    grid-column: 1 / -1;
+    margin: 0 auto;
+    width: 50%;
+    min-width: 200px;
+    max-width: 500px;
+    line-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    label,
+    input {
+      line-height: inherit;
+      font-size: 1.4rem;
+    }
+    label {
+      margin-right: 1rem;
+    }
+    input {
+      width: 50%;
+    }
+  }
+
+  img {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 760px) {
+  .App {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

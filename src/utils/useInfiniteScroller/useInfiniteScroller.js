@@ -15,13 +15,14 @@ function useInfiniteScroller(query, pageNumber) {
     let cancel
     if (query === '') {
       console.log('query empty, returning')
+      setLoading(false)
+      setError(false)
       return () => {
         cancel = true
       }
     }
     setLoading(true)
     setError(false)
-    console.log('request sending')
     axios({
       method: 'GET',
       url: `https://pixabay.com/api/?key=17300653-639be655694062aab8cd3f5ab&q=${query}&page=${pageNumber}`,

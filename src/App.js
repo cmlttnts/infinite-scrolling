@@ -3,12 +3,6 @@ import 'main.scss'
 import 'App.scss'
 import useInfiniteScroller from 'utils/useInfiniteScroller/useInfiniteScroller'
 
-// // https://pixabay.com/api/
-// const baseUrl = 'https://pixabay.com/api/?'
-
-// const makeQuery = (query, pageNumber = 1) =>
-//   `${baseUrl}key=${process.env.REACT_APP_PIXA_KEY}&q=${query}&page=${pageNumber}`
-
 export default function App() {
   const [query, setQuery] = useState('')
   const [pageNumber, setPageNumber] = useState(1)
@@ -17,17 +11,24 @@ export default function App() {
     query,
     pageNumber,
   )
+  const lastPageUpdate = useRef(Date.now())
 
   const observer = useRef()
   const lastElementRef = useCallback(
     (node) => {
       if (loading) return
       if (observer.current) observer.current.disconnect()
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1)
-        }
-      })
+      observer.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting && hasMore) {
+            if (Date.now() - lastPageUpdate.current > 700) {
+              setPageNumber((prevPageNumber) => prevPageNumber + 1)
+              lastPageUpdate.current = Date.now()
+            }
+          }
+        },
+        { threshold: 0.75 },
+      )
       if (node) observer.current.observe(node)
     },
     [loading, hasMore],
@@ -39,8 +40,17 @@ export default function App() {
   }
 
   return (
-    <>
-      <input type="text" value={query} onChange={handleSearch}></input>
+    <div className="App">
+      <p>Using Pixabay&apos;s Api</p>
+      <div className="SearchBox">
+        <label htmlFor="seach">Search</label>
+        <input
+          type="text"
+          id="search"
+          value={query}
+          onChange={handleSearch}
+        ></input>
+      </div>
       {images.map((image, index) => {
         if (images.length === index + 1) {
           return (
@@ -56,6 +66,6 @@ export default function App() {
       })}
       <div>{loading && 'Loading...'}</div>
       <div>{error && 'Error'}</div>
-    </>
+    </div>
   )
 }
