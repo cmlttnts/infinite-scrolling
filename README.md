@@ -1,6 +1,5 @@
-# My React JavaScript Eslint Prettier Template
+# Infinite Image Scrolling App with React and Axios
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
