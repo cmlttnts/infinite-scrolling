@@ -1,4 +1,12 @@
 {
-    "extends": "@imaginary-cloud/react",
-    "root": true
+  "extends": "@imaginary-cloud/react",
+  "root": true,
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
 } 
