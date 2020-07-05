@@ -43,7 +43,7 @@ export default function App() {
     <div className="App">
       <p>Using Pixabay&apos;s Api</p>
       <div className="SearchBox">
-        <label htmlFor="seach">Search</label>
+        <label htmlFor="search">Search</label>
         <input
           type="text"
           id="search"
