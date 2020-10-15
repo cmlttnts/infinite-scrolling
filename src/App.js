@@ -44,25 +44,15 @@ export default function App() {
       <p>Using Pixabay&apos;s Api</p>
       <div className="SearchBox">
         <label htmlFor="search">Search</label>
-        <input
-          type="text"
-          id="search"
-          value={query}
-          onChange={handleSearch}
-        ></input>
+        <input type="text" id="search" value={query} onChange={handleSearch} />
       </div>
       {images.map((image, index) => {
         if (images.length === index + 1) {
           return (
-            <img
-              ref={lastElementRef}
-              src={image}
-              key={image}
-              alt="preview"
-            ></img>
+            <img ref={lastElementRef} src={image} key={image} alt="preview" />
           )
         }
-        return <img src={image} key={image} alt="preview"></img>
+        return <img src={image} key={image} alt="preview" />
       })}
       <div>{loading && 'Loading...'}</div>
       <div>{error && 'Error'}</div>
